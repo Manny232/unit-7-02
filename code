@@ -1,0 +1,105 @@
+
+display.setDefault( "background",0, 255, 204)
+
+local dPad = display.newImage( "d-pad.png" )
+dPad.x = 150
+dPad.y = display.contentHeight - 80
+dPad.id = "d-pad"
+---------------------------------------------------------------------- Arrows
+local upArrow = display.newImage( "upArrow.png" )
+upArrow.x = 150
+upArrow.y = display.contentHeight - 190
+upArrow.id = "up arrow"
+
+
+local rightArrow = display.newImage( "rightArrow.png" )
+rightArrow.x = 260
+rightArrow.y = display.contentHeight -80
+rightArrow.id = "rightArrow arrow"
+
+
+local leftArrow = display.newImage( "leftArrow.png" )
+leftArrow.x = 40
+leftArrow.y = display.contentHeight -80
+leftArrow.id = "LeftArrow arrow"
+
+local downArrow = display.newImage( "downArrow.png" )
+downArrow.x = 150
+downArrow.y = display.contentHeight +30
+downArrow.id = "downArrow arrow"
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------Character's
+local theCharacter = display.newImageRect( "character.png", 150 , 150)
+theCharacter.x = display.contentCenterX
+theCharacter.y = display.contentCenterY - 100
+theCharacter.id = "the character"
+------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------events 
+function upArrow:touch( event )
+    if ( event.phase == "ended" ) then
+        -- move the character up
+        transition.moveBy( theCharacter, { 
+        	x = 0, -- move 0 in the x direction 
+        	y = -50, -- move up 50 pixels
+        	time = 100 -- move in a 1/10 of a second
+        	} )
+    end
+    return true
+
+
+
+
+end  function rightArrow:touch( event )
+  if ( event.phase == "ended" ) then
+        -- move the character up
+        transition.moveBy( theCharacter, { 
+        	x = 30, -- move 0 in the x direction 
+        	y = 0, -- move up 50 pixels
+        	time = 100 -- move in a 1/10 of a second
+        	} )
+    end
+
+    return true
+
+
+
+end  function leftArrow:touch( event )
+  if ( event.phase == "ended" ) then
+        -- move the character up
+        transition.moveBy( theCharacter, { 
+        	x = -30, -- move 0 in the x direction 
+        	y = 0, -- move up 50 pixels
+        	time = 100 -- move in a 1/10 of a second
+        	} )
+    end
+
+    return true
+
+
+end  function downArrow:touch( event )
+  if ( event.phase == "ended" ) then
+        -- move the character up
+        transition.moveBy( theCharacter, { 
+        	x = 0, -- move 0 in the x direction 
+        	y = 30, -- move up 50 pixels
+        	time = 100 -- move in a 1/10 of a second
+        	} )
+    end
+
+    return true
+
+end
+
+
+
+
+--------------------------------------------------------------
+
+
+
+--------------------------------------------------------------Listners
+upArrow:addEventListener( "touch", upArrow )
+rightArrow:addEventListener( "touch", rightArrow )
+leftArrow:addEventListener( "touch", leftArrow )
+downArrow:addEventListener( "touch", downArrow )
+---------------------------------------------------------------
